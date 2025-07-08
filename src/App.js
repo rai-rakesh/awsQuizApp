@@ -68,13 +68,21 @@ function App() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 20 }}>
       {showAnswer && (
         <div style={{ marginTop: 20 }}>
+         <p>
+          {selected === question.answer ? (
+            "✅ Correct!"
+          ) : (
+            <>
+              ❌ Incorrect. <br />
+             <b> Correct answer: </b> {question.answer}
+            </>
+          )}
+        </p>
           <p>
-            {selected === question.answer
-              ? "✅ Correct!"
-              : `❌ Incorrect. Correct answer: ${question.answer}`}
-          </p>
-          <p>
-             Community Answer : {question.community}
+            <>
+            <b> Community Answer : </b> <br />
+             {question.community}
+            </>
           </p>
           {current + 1 < quizData.length ? (
             <button onClick={handleNext}>Next Question</button>
